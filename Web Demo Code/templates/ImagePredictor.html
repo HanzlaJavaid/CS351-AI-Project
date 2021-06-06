@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class ='container'>
+    <h1 class='text-center'>Project Demo</h1>
+    <div class="card bg-success text-white">
+        <div class="card-body">
+          <h5 class="card-title text-center">Model From Transfer Learning</h5>
+        <form method="POST" enctype="multipart/form-data" action="">
+            {% csrf_token %}
+            {{ form.Image }}
+            <br>
+            <div class="row justify-content-center">
+              <input type="submit" value="Predict" name="TL" class= 'btn btn-lg btn-primary text-center'>
+            </div>
+        </form>
+       
+      <br>
+    {% if mode == 1 %}
+      <div class="row">
+        <div class="col-md">
+          <h5>As seen by Neural Network</h5>
+        <img src="{{ img }}">
+      </div>
+      <div class="col-lg"> 
+    
+        <h5>Predictions</h5>
+        {% for key,val in pred.items %}
+        <div class="row">
+          <div class="col-4">{{ key }}</div>
+          <div class="col-6">
+            <div class="progress" style="height: 20px;" >
+              <div class="progress-bar" role="progressbar" style="width: {{ val }}%" aria-valuenow="{{ val }}" aria-valuemin="0" aria-valuemax="100">{{ val }}</div>
+              </div>
+          </div>
+        </div>
+        {% endfor %}
+       
+        </div>
+      </div> 
+      {% endif %}
+      </div>
+      </div>
+      <br><br>
+      <div class="card bg-info text-white">
+        <div class="card-body">
+          <h5 class="card-title text-center">Model From Scratch</h5>
+          <form method="POST" enctype="multipart/form-data" action="">
+            {% csrf_token %}
+            {{ form.Image }}
+            <br>
+            <div class="row justify-content-center">
+              <input type="submit" value="Predict" name="SC" class= 'btn btn-lg btn-primary text-center'>
+            </div>
+        </form>
+      <br>
+    {% if mode == 0 %}
+      <div class="row">
+        <div class="col-md">
+          <h5>As seen by Neural Network</h5>
+        <img src="{{ img }}">
+      </div>
+      <div class="col-lg"> 
+    
+        <h5>Predictions</h5>
+        {% for key,val in pred.items %}
+        <div class="row">
+          <div class="col-4">{{ key }}</div>
+          <div class="col-6">
+            <div class="progress" style="height: 20px;" >
+              <div class="progress-bar" role="progressbar" style="width: {{ val }}%" aria-valuenow="{{ val }}" aria-valuemin="0" aria-valuemax="100">{{ val }}</div>
+              </div>
+          </div>
+        </div>
+        {% endfor %}
+       
+        </div>
+      </div> 
+      {% endif %}
+      </div>
+      </div>
+{% endblock %}

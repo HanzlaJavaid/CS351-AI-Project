@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class ='container'>
+    <h1 class='text-center'>About</h1>
+    <p>This project aims to demonstrate benefits of transfer learning. For observation of the benefits, we used two classifiers for sign language. Transfer learning is achieved with the help of pretrained model for Fassion MNIST dataset </p>
+    <h2 >Dataset</h2>
+    <p>
+        <ul>
+            <li>Dataset consists of 1400 images equally distributed among following 7 classes</li>
+            <ul>
+                <li>Fantastic</li>
+                <li>Hi five</li>
+                <li>Strength</li>
+                <li>Thubms down</li>
+                <li>Thumbs up</li>
+                <li>Victory</li>
+                <li>Yolo</li>
+            </ul>
+            <li>All images are in '.jpg' format and have dimensions (2448 x 2448)</li>
+        </ul>
+    </p>
+    <h2 >Technologies</h2>
+    <p>
+        <ul>
+            <li>For model creation</li>
+            <ul>
+            <li>Python</li>
+            <li>Matplotlib</li>
+            <li>Keras</li>
+            </ul>
+            <li>For model serving</li>
+            <ul>
+            <li>Django</li>
+            <li>Bootstrap</li>
+            <li>Scikit-image</li>
+            </ul>
+        </ul>
+    </p>
+    <h2>Neural Network Structure</h2>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6">
+            <h4>Model trained from scratch</h4>
+            <img src="https://i.ibb.co/RNDML8q/sc.png" alt="sc" border="2" class="img-fluid">
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6">
+            <h4>Fassion MNIST model</h4>
+            <img src="https://i.ibb.co/VCrLdxM/mnist.png" alt="sc" border="2"  class="img-fluid">
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6">
+            <h4>Transfer learning applied</h4>
+            <img src="https://i.ibb.co/yVrWSLS/final.png" alt="sc" border="2"class="img-fluid" >
+        </div>
+    </div>
+    <br>
+    <h2>Observations</h2>
+    <p>
+        <ul>
+            <li>Model obtained by transfer learning is more accurate for testing new samples</li>
+            <li>Training time is much less for transfer learning because of almost half the number of trainable parameters</li>
+            <li>Transfer learning achieved a higher accuracy is less epochs</li>
+        </ul>
+    </p>
+{% endblock %}
